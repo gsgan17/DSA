@@ -12,16 +12,6 @@ public:
             right[n-1-i]=right[n-i]*nums[n-1-i];
         }
 
-        for(auto it: left){
-            cout << it << " ";
-        }
-        cout << endl;
-
-        for(auto it: right){
-            cout << it << " ";
-        }
-        cout << endl;
-
         vector<int> soln(n, 0);
         for(int i=0; i<n; i++){
             int low = i-1;
@@ -34,7 +24,6 @@ public:
                 temp*=right[high];
             }
             soln[i]=temp;
-            cout << i << " " << temp << endl;
         }
 
         return soln;
