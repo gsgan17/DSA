@@ -3,13 +3,13 @@ public:
     int smallestRepunitDivByK(int k) {
         long long dividend = 1;
         int length= 1;
-        set<int> seen;
+        vector<bool> seen(k, false);
 
-        while(!seen.count(dividend)){
+        while(!seen[dividend]){
             if(dividend%k==0){
                 return length;
             } else{
-                seen.insert(dividend);
+                seen[dividend]=true;
                 length++;
                 dividend=dividend*10 + 1;
                 dividend=dividend%k;
