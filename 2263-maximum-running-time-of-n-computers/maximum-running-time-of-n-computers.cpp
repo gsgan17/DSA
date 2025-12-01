@@ -15,7 +15,7 @@ public:
 
         long long soln = -1;
         long long l = 0;
-        long long r = total;
+        long long r = total/n + 1;
 
         while(l<=r){
             long long mid = l + (r-l)/2;
