@@ -77,6 +77,23 @@ namespace IntroductoryProblems {
         cout << ops << "\n";
     }
 
+    void permutations() {
+        int n;
+        cin >> n;
+
+        if (2 <= n && n <= 3) {
+            cout << "NO SOLUTION\n";
+            return;
+        }
+
+        for (int i = 2; i >= 1; i--) {
+            for (int j = i; j <= n; j+=2) {
+                cout << j << " ";
+            }
+        }
+        cout << "\n";
+    }
+
 }
 
 int main() {
@@ -94,7 +111,7 @@ int main() {
     int tests = 1;
     // cin >> tests;
     while (tests--) {
-        IntroductoryProblems::increasing_array();
+        IntroductoryProblems::permutations();
     }
 
     return 0;
