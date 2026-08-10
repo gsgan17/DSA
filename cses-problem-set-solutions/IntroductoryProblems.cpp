@@ -36,6 +36,25 @@ namespace IntroductoryProblems {
         cout << total_sum - sum << '\n';
     }
 
+    void repetitions() {
+        string s;
+        cin >> s;
+        int n = s.size();
+        int longest_sequence = 1;
+        int current_sequence = 1;
+
+        for (int i = 1; i < n; i++) {
+            if (s[i] == s[i-1]) {
+                current_sequence++;
+            } else {
+                current_sequence = 1;
+            }
+            longest_sequence = max(longest_sequence, current_sequence);
+        }
+        
+        cout << longest_sequence << "\n";
+    }
+
 }
 
 int main() {
@@ -53,7 +72,7 @@ int main() {
     int tests = 1;
     // cin >> tests;
     while (tests--) {
-        IntroductoryProblems::missing_number();
+        IntroductoryProblems::repetitions();
     }
 
     return 0;
