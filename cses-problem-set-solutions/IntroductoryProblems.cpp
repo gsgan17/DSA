@@ -23,6 +23,19 @@ namespace IntroductoryProblems {
         cout << n << '\n';
     }
 
+    void missing_number() {
+        int n;
+        cin >> n;
+        long long sum = 0;
+        for (int i = 0; i < n - 1; i++) {
+            int x;
+            cin >> x;
+            sum += x;
+        }
+        long long total_sum = (long long)n * (n + 1) / 2;
+        cout << total_sum - sum << '\n';
+    }
+
 }
 
 int main() {
@@ -40,7 +53,7 @@ int main() {
     int tests = 1;
     // cin >> tests;
     while (tests--) {
-        IntroductoryProblems::weird_algorithm();
+        IntroductoryProblems::missing_number();
     }
 
     return 0;
