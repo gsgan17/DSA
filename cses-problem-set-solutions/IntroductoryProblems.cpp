@@ -55,6 +55,28 @@ namespace IntroductoryProblems {
         cout << longest_sequence << "\n";
     }
 
+    void increasing_array() {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (int i = 0; i < n; i++) {
+            cin >> a[i];
+        }
+
+        int max_num = a[0];
+        long long ops = 0;
+
+        for (int i = 1; i < n; i++) {
+            if (a[i] < max_num) {
+                ops += (max_num - a[i]);
+            } else if (a[i] > max_num) {
+                max_num = a[i];
+            }
+        }
+
+        cout << ops << "\n";
+    }
+
 }
 
 int main() {
@@ -72,7 +94,7 @@ int main() {
     int tests = 1;
     // cin >> tests;
     while (tests--) {
-        IntroductoryProblems::repetitions();
+        IntroductoryProblems::increasing_array();
     }
 
     return 0;
