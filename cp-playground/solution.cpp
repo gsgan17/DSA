@@ -8,7 +8,7 @@ using namespace std;
 #endif
 
 void solve() {
-    
+    cout << "Hello, World!" << endl;
 }
 
 int main() {
@@ -24,7 +24,7 @@ int main() {
 #endif
 
     int tests = 1;
-    cin >> tests;
+    // cin >> tests;
     while (tests--) {
         solve();
     }
