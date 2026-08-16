@@ -1,19 +1,37 @@
 class Solution {
 public:
     bool stoneGameIX(vector<int>& stones) {
-        int cnt0 = 0, cnt1 = 0, cnt2 = 0;
-        for (int val : stones) {
-            if (int type = val % 3; type == 0) {
-                ++cnt0;
-            } else if (type == 1) {
-                ++cnt1;
-            } else {
-                ++cnt2;
+        int freq[3] = {0};
+        for (const int num: stones)
+            ++freq[num % 3];
+
+        int f1 = freq[1], f2 = freq[2];
+        if (f1) {
+            int cnt = 1;
+            --f1;
+            int minf = min(f1, f2);
+            f1 -= minf, f2 -= minf;
+            if (f1) {
+                --f1;
+                cnt = 0;
             }
+            if (f1 + f2 && (cnt + freq[0]) % 2)
+                return true;
         }
-        if (cnt0 % 2 == 0) {
-            return cnt1 >= 1 && cnt2 >= 1;
+
+        f1 = freq[1], f2 = freq[2];
+        if (f2) {
+            int cnt = 1;
+            --f2;
+            int minf = min(f1, f2);
+            f1 -= minf, f2 -= minf;
+            if (f2) {
+                --f2;
+                cnt = 0;
+            }
+            if (f1 + f2 && (cnt + freq[0]) % 2)
+                return true;
         }
-        return cnt1 - cnt2 > 2 || cnt2 - cnt1 > 2;
+        return false;
     }
 };
