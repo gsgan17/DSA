@@ -18,24 +18,10 @@ public:
         return prefix_sum[r] - prefix_sum[l - 1];
     }
 
-    void debug(vector<vector<int>>& matrix) {
-        for (auto it1 : matrix) {
-            for (auto it2 : it1) {
-                cout << it2 << " ";
-            }
-            cout << "\n";
-        }
-        cout << "\n";
-    }
-
     int stoneGameV(vector<int>& stoneValue) {
         int n = stoneValue.size();
         vector<vector<int>> dp(n, vector<int>(n + 1, 0));
         vector<int> prefix_sum = get_prefix_sum_vector(n, stoneValue);
-
-        // for (int i = 0; i < n; i++) {
-        //     dp[i][1] = stoneValue[i];
-        // }
 
         for (int j = 2; j <= n; j++) {
             for (int i = 0; i <= (n - j); i++) {
@@ -55,8 +41,6 @@ public:
                 dp[i][j] = sum;
             }
         }
-
-        // debug(dp);
 
         return dp[0][n];
     }
